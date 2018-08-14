@@ -352,7 +352,8 @@ class Video extends Component {
       onMorePress,
       inlineOnly,
       playInBackground,
-      playWhenInactive
+      playWhenInactive,
+      forceRTL,
     } = this.props
 
     const inline = {
@@ -417,6 +418,7 @@ class Video extends Component {
           duration={duration}
           logo={logo}
           title={title}
+          forceRTL={forceRTL}
           more={!!onMorePress}
           onMorePress={() => onMorePress()}
           theme={setTheme}
@@ -457,6 +459,7 @@ Video.propTypes = {
   playWhenInactive: PropTypes.bool,
   rotateToFullScreen: PropTypes.bool,
   lockPortraitOnFsExit: PropTypes.bool,
+  forceRTL: PropTypes.bool,
   onEnd: PropTypes.func,
   onLoad: PropTypes.func,
   onPlay: PropTypes.func,
@@ -486,6 +489,7 @@ Video.defaultProps = {
   playWhenInactive: false,
   rotateToFullScreen: false,
   lockPortraitOnFsExit: false,
+  forceRTL: false,
   onEnd: () => {},
   onLoad: () => {},
   onPlay: () => {},

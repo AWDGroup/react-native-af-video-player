@@ -127,7 +127,8 @@ class Controls extends Component {
       currentTime,
       duration,
       theme,
-      inlineOnly
+      inlineOnly,
+      forceRTL
     } = this.props
 
     const { center, ...controlBar } = theme
@@ -141,6 +142,7 @@ class Controls extends Component {
             more={more}
             onMorePress={() => onMorePress()}
             theme={{ title: theme.title, more: theme.more }}
+            forceRTL={forceRTL}
           />
           <Animated.View style={[styles.flex, { transform: [{ scale: this.scale }] }]}>
             <PlayButton
@@ -197,7 +199,8 @@ Controls.propTypes = {
   duration: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   logo: PropTypes.string,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  forceRTL: PropTypes.bool,
 }
 
 export { Controls }

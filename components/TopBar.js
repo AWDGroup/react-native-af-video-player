@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor,
     paddingLeft: 10,
     paddingRight: 35,
-    fontSize: 16
+    fontSize: 16,
   },
   logo: {
     marginLeft: 5,
@@ -44,14 +44,15 @@ const TopBar = (props) => {
     more,
     title,
     theme,
-    onMorePress
+    onMorePress,
+    forceRTL
   } = props
   return (
     <LinearGradient colors={['rgba(0,0,0,0.75)', 'rgba(0,0,0,0)']} style={styles.container}>
       <View style={styles.row}>
         { logo && <Image style={styles.logo} resizeMode="contain" {...checkSource(logo)} />}
         <Text
-          style={[styles.title, { color: theme.title }]}
+          style={[styles.title, { color: theme.title, textAlign: (forceRTL) ? 'right' : 'left' }]}
           numberOfLines={1}
           ellipsizeMode="tail"
         >
@@ -78,7 +79,8 @@ TopBar.propTypes = {
   logo: PropTypes.string,
   more: PropTypes.bool.isRequired,
   onMorePress: PropTypes.func.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
+  forceRTL: PropTypes.bool,
 }
 
 export { TopBar }
