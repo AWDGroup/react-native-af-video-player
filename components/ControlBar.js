@@ -23,8 +23,25 @@ const ControlBar = (props) => {
     muted,
     fullscreen,
     theme,
-    inlineOnly
+    inlineOnly,
+    hideVolume
   } = props
+
+  let volumeIcon;
+  if (!hideVolume)
+  {
+    volumeIcon = (
+      <ToggleIcon
+        paddingLeft
+        theme={theme.volume}
+        onPress={() => props.toggleMute()}
+        isOn={muted}
+        iconOff="volume-up"
+        iconOn="volume-mute"
+        size={20}
+      />
+    );
+  }
 
   return (
     <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.75)']} style={styles.container}>
@@ -35,15 +52,7 @@ const ControlBar = (props) => {
         progress={progress}
         theme={{ scrubberThumb: theme.scrubberThumb, scrubberBar: theme.scrubberBar }}
       />
-      <ToggleIcon
-        paddingLeft
-        theme={theme.volume}
-        onPress={() => props.toggleMute()}
-        isOn={muted}
-        iconOff="volume-up"
-        iconOn="volume-mute"
-        size={20}
-      />
+      { volumeIcon }
       <Time time={duration} theme={theme.duration} />
       { !inlineOnly &&
       <ToggleIcon
@@ -65,6 +74,7 @@ ControlBar.propTypes = {
   onSeekRelease: PropTypes.func.isRequired,
   fullscreen: PropTypes.bool.isRequired,
   muted: PropTypes.bool.isRequired,
+  hideVolume: PropTypes.bool,
   inlineOnly: PropTypes.bool.isRequired,
   progress: PropTypes.number.isRequired,
   currentTime: PropTypes.number.isRequired,

@@ -118,6 +118,7 @@ class Controls extends Component {
       paused,
       fullscreen,
       muted,
+      hideVolume,
       loading,
       logo,
       more,
@@ -135,7 +136,7 @@ class Controls extends Component {
 
     return (
       <Touchable onPress={() => this.hideControls()}>
-        <Animated.View style={[styles.container, { opacity: this.animControls }]}>
+        <Animated.View style={[styles.container, { opacity: this.animControls, backgroundColor: theme.containerBackgroundColor }]}>
           <TopBar
             title={title}
             logo={logo}
@@ -157,6 +158,7 @@ class Controls extends Component {
             toggleMute={() => this.props.toggleMute()}
             togglePlay={() => this.props.togglePlay()}
             muted={muted}
+            hideVolume={hideVolume}
             paused={paused}
             fullscreen={fullscreen}
             onSeek={pos => this.onSeek(pos)}
@@ -192,6 +194,7 @@ Controls.propTypes = {
   inlineOnly: PropTypes.bool.isRequired,
   fullscreen: PropTypes.bool.isRequired,
   muted: PropTypes.bool.isRequired,
+  hideVolume: PropTypes.bool,
   more: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   progress: PropTypes.number.isRequired,

@@ -345,6 +345,7 @@ class Video extends Component {
       rate,
       style,
       volume,
+      hideVolume,
       placeholder,
       theme,
       onTimedMetadata,
@@ -409,6 +410,7 @@ class Video extends Component {
           togglePlay={() => this.togglePlay()}
           paused={paused}
           muted={muted}
+          hideVolume={hideVolume}
           fullscreen={fullScreen}
           loading={loading}
           onSeek={val => this.seek(val)}
@@ -470,6 +472,7 @@ Video.propTypes = {
   onTimedMetadata: PropTypes.func,
   rate: PropTypes.number,
   volume: PropTypes.number,
+  hideVolume: PropTypes.bool,
   lockRatio: PropTypes.number,
   logo: PropTypes.string,
   title: PropTypes.string,
@@ -500,6 +503,7 @@ Video.defaultProps = {
   onTimedMetadata: () => {},
   rate: 1,
   volume: 1,
+  hideVolume: false,
   lockRatio: undefined,
   logo: undefined,
   title: '',
