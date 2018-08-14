@@ -52,7 +52,7 @@ const TopBar = (props) => {
       <View style={styles.row}>
         { logo && <Image style={styles.logo} resizeMode="contain" {...checkSource(logo)} />}
         <Text
-          style={[styles.title, { color: theme.title, textAlign: (forceRTL) ? 'right' : 'left' }]}
+          style={[styles.title, { color: theme.title, fontFamily: theme.titleFont, textAlign: (forceRTL) ? 'right' : 'left' }]}
           numberOfLines={1}
           ellipsizeMode="tail"
         >
