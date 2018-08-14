@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor,
     paddingLeft: 10,
-    paddingRight: 35,
+    paddingRight: 10,
     fontSize: 16,
   },
   logo: {

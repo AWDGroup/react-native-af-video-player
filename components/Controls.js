@@ -142,7 +142,7 @@ class Controls extends Component {
             logo={logo}
             more={more}
             onMorePress={() => onMorePress()}
-            theme={{ title: theme.title, more: theme.more }}
+            theme={{ title: theme.title, titleFont: theme.titleFont, more: theme.more }}
             forceRTL={forceRTL}
           />
           <Animated.View style={[styles.flex, { transform: [{ scale: this.scale }] }]}>
